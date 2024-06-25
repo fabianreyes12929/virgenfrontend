@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iniciar Sesión</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa; /* Color de fondo suave */
+        }
+        .container {
+            max-width: 400px; /* Ancho máximo del formulario */
+            background-color: #fff; /* Fondo blanco para el formulario */
+            padding: 20px; /* Espacio interno */
+            border-radius: 8px; /* Bordes redondeados */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Sombra suave */
+            margin: auto; /* Centrar en la página */
+            margin-top: 50px; /* Margen superior */
+        }
+        .form-control {
+            border-radius: 4px; /* Bordes redondeados para los campos */
+        }
+        .btn-primary {
+            width: 100%; /* Ancho completo del botón */
+            margin-top: 10px; /* Espacio superior al botón */
+        }
+        .text-center {
+            text-align: center; /* Alineación centrada del texto */
+            margin-bottom: 10px; /* Espacio inferior al texto centrado */
+        }
+        .register-link {
+            color: #007bff; /* Color azul para el enlace de registro */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2 class="text-center">Iniciar Sesión</h2>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="email" class="form-control" id="email" name="email" required>
+            </div>
+            <div class="form-group">
+                <label for="uuid">Contraseña (UUID)</label>
+                <input type="password" class="form-control" id="uuid" name="uuid" required>
+                <small id="uuidHelp" class="form-text text-muted">Ingresa tu contraseña (UUID).</small>
+            </div>
+            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+        </form>
+        <div class="text-center">
+            <p>No tienes una cuenta? <a href="registro.html" class="register-link">Regístrate aquí</a></p>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="assets/js/login.js"></script>
+</body>
+</html>

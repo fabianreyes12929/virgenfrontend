@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador de Peregrinaciones</title>
+    <link rel="stylesheet" href="assets/css/peregrinaciones.css">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    
+</head>
+<body>
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+    
+          <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <!-- <img src="assets/img/logo.png" alt=""> -->
+            <h1 class="sitename">Virgen Peregrina</h1><span>.</span>
+          </a>
+    
+          <nav id="navmenu" class="navmenu">
+            <ul>
+              <li><a href="index.html#hero" class="">Home</a></li>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#services">Peregrinaciones</a></li>
+              <li><a href="index.html#team">Replicas</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="#">Administracion</a></li>
+                  <li class="dropdown"><a href="#"><span>Administrar</span> <i
+                        class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <ul>
+                      <li><a href="AdministrarBlog.html">Administrar Blogs</a></li>
+                      <li><a href="AdministrarPeregrinaciones.html">Administrar Përegrinaciones</a></li>
+                      <li><a href="AdminReplicas.html">Administrar Replicias</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
+    
+          <a class="btn-getstarted" href="index.html#about">Get Started</a>
+    
+        </div>
+      </header>
+
+      <br><br><br>
+    <div class="container mt-5">
+        <h1 class="mb-4">Administrador de Peregrinaciones</h1>
+        
+        <!-- Filtros -->
+        <div class="row mb-3">
+            <div class="col-md-3">
+                <input type="text" id="filterReceiverUserName" class="form-control" placeholder="Filtrar por Nombre de Receptor">
+            </div>
+            <div class="col-md-3">
+                <input type="text" id="filterState" class="form-control" placeholder="Filtrar por Estado">
+            </div>
+            <div class="col-md-3">
+                <input type="text" id="filterReplicaOwnerName" class="form-control" placeholder="Filtrar por Nombre de Propietario">
+            </div>
+            <div class="col-md-3">
+                <input type="text" id="filterReplicaName" class="form-control" placeholder="Filtrar por Nombre de Réplica">
+            </div>
+            <div class="col-md-3 mt-2">
+                <input type="text" id="filterCity" class="form-control" placeholder="Filtrar por Ciudad">
+            </div>
+        </div>
+
+        <!-- Tabla de peregrinaciones -->
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Estado</th>
+                    <th>Ciudad</th>
+                    <th>Nombre de Receptor</th>
+                    <th>Correo Electrónico</th>
+                    <th>Teléfono</th>
+                    <th>Nombre de Propietario</th>
+                    <th>Correo Electrónico Propietario</th>
+                    <th>Teléfono Propietario</th>
+                    <th>Nombre de Réplica</th>
+                    <th>Código de Réplica</th>
+                </tr>
+            </thead>
+            <tbody id="peregrinacionTableBody">
+                <!-- Contenido dinámico -->
+            </tbody>
+        </table>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="assets/js/peregrinaciones.js"></script>
+</body>
+</html>

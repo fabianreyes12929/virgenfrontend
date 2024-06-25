@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador de Réplicas</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+
+</head>
+<body>
+    <header id="header" class="header d-flex align-items-center fixed-top">
+        <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
+    
+          <a href="index.html" class="logo d-flex align-items-center me-auto me-xl-0">
+            <!-- Uncomment the line below if you also wish to use an image logo -->
+            <!-- <img src="assets/img/logo.png" alt=""> -->
+            <h1 class="sitename">Virgen Peregrina</h1><span>.</span>
+          </a>
+    
+          <nav id="navmenu" class="navmenu">
+            <ul>
+              <li><a href="index.html#hero" class="">Home</a></li>
+              <li><a href="index.html#about">About</a></li>
+              <li><a href="index.html#services">Peregrinaciones</a></li>
+              <li><a href="index.html#team">Replicas</a></li>
+              <li><a href="blog.html">Blog</a></li>
+              <li class="dropdown"><a href="#"><span>Dropdown</span> <i class="bi bi-chevron-down toggle-dropdown"></i></a>
+                <ul>
+                  <li><a href="#">Administracion</a></li>
+                  <li class="dropdown"><a href="#"><span>Administrar</span> <i
+                        class="bi bi-chevron-down toggle-dropdown"></i></a>
+                    <ul>
+                      <li><a href="AdministrarBlog.html">Administrar Blogs</a></li>
+                      <li><a href="AdministrarPeregrinaciones.html">Administrar Përegrinaciones</a></li>
+                      <li><a href="AdminReplicas.html">Administrar Replicias</a></li>
+                    </ul>
+                  </li>
+                </ul>
+              </li>
+              <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+            <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+          </nav>
+    
+          <a class="btn-getstarted" href="index.html#about">Get Started</a>
+    
+        </div>
+      </header>
+
+      <br><br><br>
+<div class="container mt-5">
+    <h1 class="mb-4">Inventario de Réplicas</h1>
+    
+    <!-- Filtros -->
+    <div class="row mb-3">
+        <div class="col-md-4">
+            <input type="text" id="filterUser" class="form-control" placeholder="Filtrar por propietario">
+        </div>
+        <div class="col-md-4">
+            <select id="filterAvailable" class="form-control">
+                <option value="">Filtrar por Disponibilidad</option>
+                <option value="true">Disponible</option>
+                <option value="false">No Disponible</option>
+            </select>
+        </div>
+        <div class="col-md-4">
+            <input type="date" id="filterDate" class="form-control">
+        </div>
+    </div>
+
+    <!-- Tabla de réplicas -->
+    <table class="table table-bordered">
+        <thead>
+        <tr>
+            <th>Código</th>
+            <th>Nombre</th>
+            <th>Fecha de Recepción</th>
+            <th>Propietario</th>
+            <th>Disponibilidad</th>
+        </tr>
+        </thead>
+        <tbody id="replicaTableBody">
+        <!-- Contenido dinámico -->
+        </tbody>
+    </table>
+
+    <!-- Botón para abrir el modal de creación -->
+    <button class="btn btn-primary" data-toggle="modal" data-target="#createReplicaModal">Crear Réplica</button>
+</div>
+
+<!-- Modal de creación -->
+<div class="modal fade" id="createReplicaModal" tabindex="-1" role="dialog" aria-labelledby="createReplicaModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="createReplicaModalLabel">Crear Réplica</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="createReplicaForm">
+                    <div class="form-group">
+                        <label for="code">Código</label>
+                        <input type="text" class="form-control" id="code" name="code" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="repl_name">Nombre</label>
+                        <input type="text" class="form-control" id="repl_name" name="repl_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="received_date">Fecha de Recepción</label>
+                        <input type="date" class="form-control" id="received_date" name="received_date" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="user_id">Propietario (ID)</label>
+                        <input type="number" class="form-control" id="user_id" name="user_id" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="photo_url">URL de la Foto</label>
+                        <input type="url" class="form-control" id="photo_url" name="photo_url" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="required_restore">¿Requiere Restauración?</label>
+                        <select class="form-control" id="required_restore" name="required_restore">
+                            <option value="false">No</option>
+                            <option value="true">Sí</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Crear</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+<script src="assets/js/AdminReplicas.js"></script>
+</body>
+</html>
